@@ -1,0 +1,147 @@
+// COMPASS
+
+// FONT
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700");
+
+// CONFIG
+$SPACER_XS: 0.5rem;
+$SPACER_SM: 0.75rem;
+$SPACER: 1rem;
+$SPACER_MD: 1.5rem;
+$SPACER_LG: 2rem;
+$BORDER_RADIUS: 3px;
+$PROGRESS_HEIGHT: 600px;
+$PROGRESS_LIST_HEIGHT: 75px;
+$PROGRESS_COUNTER_WIDTH: 26px;
+$LIST_ITEM_WIDTH: 100px;
+$PROGRESS_BG: #392A60;
+$BODY_BG: #2E1F47;
+$ICON_COLOR: #F3597D;
+
+// BASE
+
+
+
+
+// THE GOOD STUFF
+.progressContainer {
+  position: relative;
+  width: 300px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: $SPACER_LG;
+  color: #fff;
+  background: $PROGRESS_BG;
+//   @include box-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+}
+
+.progress {
+  position: relative;
+  padding: 0 $SPACER 0 3.5rem;
+  margin: $SPACER_LG 0 0;
+  list-style: none;
+}
+
+.progress__item {
+  position: relative;
+  min-height: $PROGRESS_LIST_HEIGHT;
+  counter-increment: list;
+  padding-left: $SPACER_XS;
+  &:before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 33px;
+    height: 60%;
+    width: 1px;
+    border-left: 1px solid #fff;
+  }
+  &:after {
+    content: counter(list);
+    position: absolute;
+    top: 0;
+    left: -2.5rem;
+    width: $PROGRESS_COUNTER_WIDTH;
+    height: $PROGRESS_COUNTER_WIDTH;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 2rem;
+    text-align: center;
+    border: 1px solid #fff;
+  }
+  //Hide border for Last Step
+  &:last-child {
+    &:before {
+      border: none;
+    }
+  }
+  //Completed
+  &.progress__item--completed {
+    opacity: 0.6;
+    color: #fff;
+    &:after {
+      content: "\2713";
+      font-weight: 400;
+      background: #fff;
+      color: $PROGRESS_BG;
+    }
+  }
+  //Active
+  &.progress__item--active {
+    &:after {
+      background: #fff;
+      color: $PROGRESS_BG;
+    }
+  }
+}
+
+.progress__title {
+  padding: 0.4rem 0 $SPACER_XS;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.progress__info {
+  font-size: 13px;
+  margin-top: -10px;
+}
+/* TaskComponent.css */
+.task-component {
+    position: absolute;
+    top: 50px; /* Adjust this value to position the component correctly below the navbar */
+    right: 0; /* Adjust this value to position the component correctly from the right side */
+    background-color: #222;
+    border: 1px solid #222;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    z-index: 10;
+  }
+  
+  .task-section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    color: #d9d9d9;
+  }
+  
+  li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #d9d9d9;
+  }
+  
